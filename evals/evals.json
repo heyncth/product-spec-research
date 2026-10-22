@@ -1,0 +1,56 @@
+{
+  "skill_name": "product-spec-research",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "2anything-converter",
+      "prompt": "I want to build a free open-source alternative to 2anything - it's that paid tool that converts files between a zillion formats in the browser. Can you research their public website and give me an implementation-ready spec package my coding agent can actually build from? Save everything under research/2anything-spec/.",
+      "expected_output": "Full docs/00-14 package under research/2anything-spec/docs/ plus research/evidence-log.md, with VERIFIED/INFERRED/UNKNOWN/NOT TESTED labels and [E-xx] refs. Quality gate passes.",
+      "files": [],
+      "assertions": [
+        {"id": "a0_contract", "text": "All 14 contract docs (docs/00 through docs/14) exist and are non-empty"},
+        {"id": "a1_evidence_log", "text": "Evidence log exists with at least 5 E-xx rows"},
+        {"id": "a2_label_coverage", "text": "Capability matrix: every table data row includes VERIFIED, INFERRED, UNKNOWN, or NOT TESTED"},
+        {"id": "a3_refs_resolve", "text": "Every [E-xx] reference in docs resolves to a row in the evidence log"},
+        {"id": "a4_no_placeholders", "text": "No TODO/TBD/FIXME placeholders in any doc"},
+        {"id": "a5_gate_pass", "text": "Quality gate script runs and exits 0"},
+        {"id": "a6_format_matrix", "text": "Format conversion matrix present (input/output formats enumerated)"},
+        {"id": "a7_platform_honesty", "text": "Honest about target platform (notes 2anything is a desktop/.app product or that the .com domain is parked, not a browser tool)"}
+      ]
+    },
+    {
+      "id": 1,
+      "eval_name": "notion-webapp",
+      "prompt": "My team is debating rebuilding something Notion-like for our internal wiki, focused on docs + lightweight tasks. Before we commit, research Notion from its public marketing site and docs - no login - and produce an implementation-ready spec package so our coding agent has a concrete foundation. Save it under research/notion-spec/.",
+      "expected_output": "Full docs/00-14 package under research/notion-spec/docs/ plus evidence log, with claimed-vs-tested separation in the capability matrix. Quality gate passes.",
+      "files": [],
+      "assertions": [
+        {"id": "a0_contract", "text": "All 14 contract docs (docs/00 through docs/14) exist and are non-empty"},
+        {"id": "a1_evidence_log", "text": "Evidence log exists with at least 5 E-xx rows"},
+        {"id": "a2_label_coverage", "text": "Capability matrix: every table data row includes VERIFIED, INFERRED, UNKNOWN, or NOT TESTED"},
+        {"id": "a3_refs_resolve", "text": "Every [E-xx] reference in docs resolves to a row in the evidence log"},
+        {"id": "a4_no_placeholders", "text": "No TODO/TBD/FIXME placeholders in any doc"},
+        {"id": "a5_gate_pass", "text": "Quality gate script runs and exits 0"},
+        {"id": "a6_claimed_vs_tested", "text": "Marketing claims separated from observed/tested behavior (NOT TESTED used on unrun product claims)"},
+        {"id": "a7_data_model", "text": "Data model section infers core objects (pages/blocks/databases or equivalent) with labels"}
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "handbrake-thin-honesty",
+      "prompt": "Curious what it would take to build a small open-source video transcoder like HandBrake, at least the basics. Their website doesn't have a ton of detail as far as I can tell. Do what research you can from public sources and write me a spec package - I care way more about knowing what you couldn't verify than about getting a confident-looking doc. Save under research/handbrake-spec/.",
+      "expected_output": "Full docs/00-14 package under research/handbrake-spec/docs/ plus evidence log, with substantial UNKNOWN/NOT TESTED labeling and non-empty docs/13 and docs/14. Zero fabricated formats or features. Quality gate passes.",
+      "files": [],
+      "assertions": [
+        {"id": "a0_contract", "text": "All 14 contract docs (docs/00 through docs/14) exist and are non-empty"},
+        {"id": "a1_evidence_log", "text": "Evidence log exists with at least 5 E-xx rows"},
+        {"id": "a2_label_coverage", "text": "Capability matrix: every table data row includes VERIFIED, INFERRED, UNKNOWN, or NOT TESTED"},
+        {"id": "a3_refs_resolve", "text": "Every [E-xx] reference in docs resolves to a row in the evidence log"},
+        {"id": "a4_no_placeholders", "text": "No TODO/TBD/FIXME placeholders in any doc"},
+        {"id": "a5_gate_pass", "text": "Quality gate script runs and exits 0"},
+        {"id": "a6_open_questions_count", "text": "docs/13 lists at least 5 substantive open questions (or explicitly 'None identified' with attempts listed)"},
+        {"id": "a7_no_fabrication", "text": "No obviously invented HandBrake formats or features (spot-check against public docs)"}
+      ]
+    }
+  ]
+}
